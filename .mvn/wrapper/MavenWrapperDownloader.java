@@ -1,4 +1,10 @@
 /*
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+/*
  * Copyright 2007-present the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,7 +24,6 @@ import java.io.*;
 import java.nio.channels.*;
 import java.util.Properties;
 
-@java.lang.SuppressWarning("all")
 public class MavenWrapperDownloader {
 
     private static final String WRAPPER_VERSION = "0.5.6";
