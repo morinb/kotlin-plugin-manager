@@ -58,6 +58,13 @@
         </repository>
     </distributionManagement>
 
+    <scm>
+        <connection>scm:git:https://github.com/morinb/kotlin-plugin-manager.git</connection>
+        <developerConnection>scm:git:https://github.com/morinb/kotlin-plugin-manager.git</developerConnection>
+        <url>https://github.com/morinb/kotlin-plugin-manager.git</url>
+        <tag>master</tag>
+    </scm>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.version>1.6.10</kotlin.version>
