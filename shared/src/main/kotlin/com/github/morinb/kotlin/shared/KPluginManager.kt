@@ -8,17 +8,22 @@ package com.github.morinb.kotlin.shared
 
 @Suppress("unused")
 interface KPluginManager {
-    fun getPlugin(id: PluginId): KPlugin
+    fun getPlugin(id: PluginId): KPlugin?
 
     /**
      * Enables a specific plugin.
      */
-    fun enable(id: PluginId): Boolean
+    fun enable(id: PluginId)
 
     /**
      * Disables a specific plugin
      */
-    fun disable(id: PluginId): Boolean
+    fun disable(id: PluginId)
+
+    /**
+     * Register a newly discovered plugin.
+     */
+    fun register(plugin: KPlugin): PluginId?
 
 
     /**
