@@ -1,0 +1,1 @@
+image::https://img.shields.io/circleci/build/github/morinb/kotlin-plugin-manager?style=flat["Build Status",link="https://app.circleci.com/pipelines/github/morinb/kotlin-plugin-manager"]
