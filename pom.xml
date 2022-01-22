@@ -260,9 +260,6 @@
                         <groupId>org.sonarsource.scanner.maven</groupId>
                         <artifactId>sonar-maven-plugin</artifactId>
                         <version>3.9.1.2184</version>
-                        <configuration>
-                            <sonar.sources>file:**/src/main/kotlin</sonar.sources>
-                        </configuration>
                     </plugin>
                 </plugins>
             </build>
