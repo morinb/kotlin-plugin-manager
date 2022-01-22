@@ -1,0 +1,1 @@
+![](https://img.shields.io/circleci/build/github/morinb/kotlin-plugin-manager "Build status")
