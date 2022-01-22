@@ -11,14 +11,21 @@
   ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
   -->
 
+<!--
+  ~ This Source Code Form is subject to the terms of the Mozilla Public
+  ~ License, v. 2.0. If a copy of the MPL was not distributed with this
+  ~ file, You can obtain one at https://mozilla.org/MPL/2.0/.
+  -->
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.morinb.kotlin</groupId>
-    <artifactId>plugin-manager</artifactId>
+    <artifactId>kotlin-plugin-manager</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
     <modules>
         <module>shared</module>
         <module>core</module>
@@ -88,6 +95,12 @@
                 <version>${kotlin.version}</version>
                 <scope>test</scope>
             </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>2.0.0-alpha6</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
