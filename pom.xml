@@ -32,6 +32,16 @@
 
     <url>https://github.com/morinb/kotlin-plugin-manager</url>
 
+    <developers>
+        <developer>
+            <name>Baptiste MORIN</name>
+            <email>morin.baptiste@gmail.com</email>
+            <organization>kotlinpluginmanager</organization>
+            <organizationUrl>https://github.com/morinb/kotlin-maven-plugin</organizationUrl>
+            <timezone>UTC+1</timezone>
+        </developer>
+    </developers>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.version>1.6.10</kotlin.version>
