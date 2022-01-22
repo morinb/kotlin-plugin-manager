@@ -68,4 +68,10 @@ class KPluginManagerTest {
         manager.disable(id)
         assertNull(manager.getPlugin(id)!!.enabledAt)
     }
+
+    @Test
+    fun `plugins method can have a filter`() {
+        manager.register(defaultPlugin)
+        assertEquals(1, manager.plugins(PluginFilters.DISABLED).count())
+    }
 }
