@@ -1,1 +1,1 @@
-![](https://img.shields.io/circleci/build/github/morinb/kotlin-plugin-manager "Build status")
+![https://app.circleci.com/pipelines/github/morinb/kotlin-plugin-manager](https://img.shields.io/circleci/build/github/morinb/kotlin-plugin-manager "Build status")
