@@ -42,6 +42,11 @@
         </developer>
     </developers>
 
+    <organization>
+        <name>kotlinpluginmanager</name>
+        <url>https://github.com/morinb/kotlin-maven-plugin</url>
+    </organization>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.version>1.6.10</kotlin.version>
