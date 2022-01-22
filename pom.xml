@@ -30,6 +30,7 @@
         </license>
     </licenses>
 
+    <url>https://github.com/morinb/kotlin-plugin-manager</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
