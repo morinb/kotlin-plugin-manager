@@ -74,4 +74,10 @@ class KPluginManagerTest {
         manager.register(defaultPlugin)
         assertEquals(1, manager.plugins(PluginFilters.DISABLED).count())
     }
+
+    @Test
+    fun `plugins does not accept null filter`() {
+        manager.register(defaultPlugin)
+        manager.plugins { false }
+    }
 }
