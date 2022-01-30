@@ -10,23 +10,36 @@ import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import java.io.File
+import java.nio.file.Files
 
 internal class KPluginsFilterTest {
 
     @Test
     fun accept() {
-        lateinit var fileJar: File
-        lateinit var fileTxt: File
+        var fileJar: File? = null
+        var fileTxt: File? = null
+        var folder: File? = null
 
         try {
             fileJar = File.createTempFile("test", ".jar")
             fileTxt = File.createTempFile("test", ".txt")
+            val createDirectory = Files.createTempDirectory("test")
+            println(createDirectory.toAbsolutePath())
+
+
+            folder = createDirectory.toFile()
 
             assertTrue(KPluginsFilter.accept(fileJar))
             assertFalse(KPluginsFilter.accept(fileTxt))
+            assertFalse(KPluginsFilter.accept(null))
+            assertFalse(KPluginsFilter.accept(folder))
+        } catch (ex: FileAlreadyExistsException) {
+            ex.printStackTrace()
+
         } finally {
-            fileJar.delete()
-            fileTxt.delete()
+            fileJar?.delete()
+            fileTxt?.delete()
+            folder?.delete()
         }
     }
 }

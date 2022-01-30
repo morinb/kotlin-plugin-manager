@@ -34,4 +34,9 @@ class KPluginTest {
         assertTrue { plugin.authors().isEmpty() }
     }
 
+    @Test
+    fun `default plugin depends on nothing`() {
+        assertTrue { plugin.dependsOn().isEmpty() }
+    }
+
 }
