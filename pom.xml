@@ -22,6 +22,8 @@
 
     <name>Kotlin application plugin manager</name>
 
+    <description>Kotlin application plugin manager</description>
+
     <licenses>
         <license>
             <name>Mozilla Public License Version 2.0</name>
@@ -134,18 +136,16 @@
                     </executions>
                 </plugin>
                 <plugin>
-
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>3.2.0</version>
-                    <configuration>
-                        <encoding>UTF-8</encoding>
-                    </configuration>
+                    <groupId>org.jetbrains.dokka</groupId>
+                    <artifactId>dokka-maven-plugin</artifactId>
+                    <version>${kotlin.version}</version>
                     <executions>
                         <execution>
-                            <id>attach-javadoc</id>
+                            <phase>prepare-package</phase>
                             <goals>
-                                <goal>jar</goal>
+                                <goal>dokka</goal>
+                                <goal>javadoc</goal>
+                                <goal>javadocJar</goal>
                             </goals>
                         </execution>
                     </executions>
