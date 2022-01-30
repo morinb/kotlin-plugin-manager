@@ -24,8 +24,16 @@ object Options {
 
     var modulePath by preference(userPreferences, "modulePath", "modules")
 
+
     var forTestsUser by preference(userPreferences, "for-test", "test-test")
     var forTestsSystem by preference(systemPreferences, "for-test-sys", "test-test-sys")
+
+    var forTestInt by preference(userPreferences, "for-test-int", 1)
+    var forTestLong by preference(userPreferences, "for-test-long", 1L)
+    var forTestFloat by preference(userPreferences, "for-test-float", 1F)
+    var forTestDouble by preference(userPreferences, "for-test-double", 1.0)
+    var forTestBoolean by preference(userPreferences, "for-test-boolean", true)
+    var forTestByteArray by preference(userPreferences, "for-test-byte-array", "test".toByteArray(Charsets.UTF_8))
 
 }
 
@@ -66,7 +74,7 @@ class PreferenceDelegate<T : Any>(
                 Double::class -> putDouble(key, value as Double)
                 Boolean::class -> putBoolean(key, value as Boolean)
                 String::class -> put(key, value as String)
-                ByteArray::class -> getByteArray(key, value as ByteArray)
+                ByteArray::class -> putByteArray(key, value as ByteArray)
                 else -> error("Unsupported preference type $type.")
             }
         }

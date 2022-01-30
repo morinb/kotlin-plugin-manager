@@ -6,6 +6,7 @@
 
 package com.github.morinb.kotlin.core
 
+import org.junit.jupiter.api.Assertions.assertArrayEquals
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import java.util.prefs.Preferences
@@ -29,5 +30,61 @@ internal class OptionsTest {
 
         Preferences.userNodeForPackage(Options::class.java).remove("for-test")
         Preferences.systemNodeForPackage(Options::class.java).remove("for-test-sys")
+    }
+
+    @Test
+    fun testInt() {
+        Preferences.userNodeForPackage(Options::class.java).remove("for-test-int")
+        assertEquals(1, Options.forTestInt)
+        Options.forTestInt = 1000
+        assertEquals(1000, Options.forTestInt)
+        Preferences.userNodeForPackage(Options::class.java).remove("for-test-int")
+    }
+
+    @Test
+    fun testLong() {
+        Preferences.userNodeForPackage(Options::class.java).remove("for-test-long")
+        assertEquals(1L, Options.forTestLong)
+        Options.forTestLong = 1000L
+        assertEquals(1000L, Options.forTestLong)
+        Preferences.userNodeForPackage(Options::class.java).remove("for-test-long")
+    }
+
+    @Test
+    fun testFloat() {
+        Preferences.userNodeForPackage(Options::class.java).remove("for-test-float")
+        assertEquals(1F, Options.forTestFloat)
+        Options.forTestFloat = 1000F
+        assertEquals(1000F, Options.forTestFloat)
+        Preferences.userNodeForPackage(Options::class.java).remove("for-test-float")
+    }
+
+    @Test
+    fun testDouble() {
+        Preferences.userNodeForPackage(Options::class.java).remove("for-test-double")
+        assertEquals(1.0, Options.forTestDouble)
+        Options.forTestDouble = 1000.0
+        assertEquals(1000.0, Options.forTestDouble)
+        Preferences.userNodeForPackage(Options::class.java).remove("for-test-double")
+    }
+
+    @Test
+    fun testBoolean() {
+        Preferences.userNodeForPackage(Options::class.java).remove("for-test-boolean")
+        assertEquals(true, Options.forTestBoolean)
+        Options.forTestBoolean = false
+        assertEquals(false, Options.forTestBoolean)
+        Preferences.userNodeForPackage(Options::class.java).remove("for-test-boolean")
+    }
+
+    @Test
+    fun testByteArray() {
+        val expected = "test".toByteArray(Charsets.UTF_8)
+        Preferences.userNodeForPackage(Options::class.java).remove("for-test-byte-array")
+        assertArrayEquals(expected, Options.forTestByteArray)
+        val expected2 = "testing".toByteArray(Charsets.UTF_8)
+        Options.forTestByteArray = expected2
+        assertArrayEquals(expected2, Options.forTestByteArray)
+        Preferences.userNodeForPackage(Options::class.java).remove("for-test-byte-array")
     }
 }
