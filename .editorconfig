@@ -6,7 +6,7 @@ end_of_line                 = lf
 indent_size                 = 4
 indent_style                = space
 insert_final_newline        = false
-max_line_length             = 120
+max_line_length             = 140
 tab_width                   = 4
 ij_continuation_indent_size = 8
 ij_formatter_off_tag        = @formatter:off
@@ -49,7 +49,7 @@ ij_xml_space_around_equals_in_attribute = false
 ij_xml_space_inside_empty_tag           = false
 ij_xml_text_wrap                        = normal
 
-[{*.gradle.kts,*.kt,*.kts,*.main.kts,*.space.kts}]
+[{*.kt,*.kts}]
 ij_kotlin_align_in_columns_case_branch                                               = false
 ij_kotlin_align_multiline_binary_operation                                           = false
 ij_kotlin_align_multiline_extends_list                                               = false
