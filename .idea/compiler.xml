@@ -9,7 +9,14 @@
         <module name="report" />
         <module name="core" />
         <module name="shared" />
+        <module name="kotlin-plugin-manager-shared" />
+        <module name="kotlin-plugin-manager-core" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="core" target="8" />
+      <module name="plugin-manager" target="8" />
+      <module name="shared" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
