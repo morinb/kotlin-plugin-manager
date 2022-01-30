@@ -1,1 +1,3 @@
-image::https://img.shields.io/circleci/build/github/morinb/kotlin-plugin-manager?style=flat["Build Status",link="https://app.circleci.com/pipelines/github/morinb/kotlin-plugin-manager"]
+image:https://img.shields.io/maven-central/v/com.github.morinb.kotlin/kotlin-plugin-manager[Maven Central]
+image:https://img.shields.io/circleci/build/github/morinb/kotlin-plugin-manager?style=flat["Build Status",link="https://app.circleci.com/pipelines/github/morinb/kotlin-plugin-manager"]
+image:https://github.com/morinb/kotlin-plugin-manager/actions/workflows/maven.yml/badge.svg["Java CI with Maven",link="https://github.com/morinb/kotlin-plugin-manager/actions/workflows/maven.yml"]
