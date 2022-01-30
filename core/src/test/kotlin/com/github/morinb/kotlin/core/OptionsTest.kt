@@ -6,8 +6,7 @@
 
 package com.github.morinb.kotlin.core
 
-import org.junit.jupiter.api.Assertions.assertArrayEquals
-import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import java.util.prefs.Preferences
 
@@ -86,5 +85,23 @@ internal class OptionsTest {
         Options.forTestByteArray = expected2
         assertArrayEquals(expected2, Options.forTestByteArray)
         Preferences.userNodeForPackage(Options::class.java).remove("for-test-byte-array")
+    }
+
+    @Test
+    fun testUnknownOptionType() {
+        val exceptionGet = assertThrows(IllegalStateException::class.java) {
+            Options.forTestUnknown
+        }
+        assertEquals(
+            "Unsupported preference type class com.github.morinb.kotlin.core.KPluginsFilter.",
+            exceptionGet.message
+        )
+        val exceptionPut = assertThrows(IllegalStateException::class.java) {
+            Options.forTestUnknown = KPluginsFilter
+        }
+        assertEquals(
+            "Unsupported preference type class com.github.morinb.kotlin.core.KPluginsFilter.",
+            exceptionPut.message
+        )
     }
 }

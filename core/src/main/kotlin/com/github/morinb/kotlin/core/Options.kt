@@ -25,16 +25,20 @@ object Options {
     var modulePath by preference(userPreferences, "modulePath", "modules")
 
 
-    var forTestsUser by preference(userPreferences, "for-test", "test-test")
-    var forTestsSystem by preference(systemPreferences, "for-test-sys", "test-test-sys")
+    internal var forTestsUser by preference(userPreferences, "for-test", "test-test")
+    internal var forTestsSystem by preference(systemPreferences, "for-test-sys", "test-test-sys")
 
-    var forTestInt by preference(userPreferences, "for-test-int", 1)
-    var forTestLong by preference(userPreferences, "for-test-long", 1L)
-    var forTestFloat by preference(userPreferences, "for-test-float", 1F)
-    var forTestDouble by preference(userPreferences, "for-test-double", 1.0)
-    var forTestBoolean by preference(userPreferences, "for-test-boolean", true)
-    var forTestByteArray by preference(userPreferences, "for-test-byte-array", "test".toByteArray(Charsets.UTF_8))
-
+    internal var forTestInt by preference(userPreferences, "for-test-int", 1)
+    internal var forTestLong by preference(userPreferences, "for-test-long", 1L)
+    internal var forTestFloat by preference(userPreferences, "for-test-float", 1F)
+    internal var forTestDouble by preference(userPreferences, "for-test-double", 1.0)
+    internal var forTestBoolean by preference(userPreferences, "for-test-boolean", true)
+    internal var forTestByteArray by preference(
+        userPreferences,
+        "for-test-byte-array",
+        "test".toByteArray(Charsets.UTF_8)
+    )
+    internal var forTestUnknown by preference(userPreferences, "for-test-unknown", KPluginsFilter)
 }
 
 
