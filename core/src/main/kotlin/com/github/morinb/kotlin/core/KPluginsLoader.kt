@@ -30,6 +30,7 @@ object KPluginsLoader {
     fun reloadPlugins(): Collection<KPlugin> {
         val pluginClassNames = mutableListOf<String>()
         val pluginFileUrl = mutableListOf<URL>()
+        println(File(Options.modulePath).absolutePath)
         File(Options.modulePath).listFiles(KPluginsFilter)?.forEach { pluginFile ->
             val jarFile = JarFile(pluginFile)
             val pluginClass = jarFile.manifest.mainAttributes.getValue("Plugin-Class")

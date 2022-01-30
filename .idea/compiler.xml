@@ -7,8 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="kotlin-plugin-manager-shared" />
-        <module name="kotlin-plugin-manager-core" />
         <module name="kotlin-plugin-manager-report" />
+        <module name="kotlin-plugin-manager-test-plugin" />
+        <module name="kotlin-plugin-manager-core" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

@@ -349,6 +349,12 @@
                 </plugins>
             </build>
         </profile>
+        <profile>
+            <id>test-plugin</id>
+            <modules>
+                <module>test-plugin</module>
+            </modules>
+        </profile>
     </profiles>
 
 
