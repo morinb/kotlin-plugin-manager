@@ -37,9 +37,7 @@ object PluginManager : KPluginManager {
         }
 
     override fun register(plugin: KPlugin): PluginId {
-        val id = plugin.id()
-        pluginCache.computeIfAbsent(id) { plugin }
-        return id
+        return pluginCache.computeIfAbsent(plugin.id()) { plugin }.id()
     }
 
     override fun plugins(filter: PluginFilter): List<KPlugin> {

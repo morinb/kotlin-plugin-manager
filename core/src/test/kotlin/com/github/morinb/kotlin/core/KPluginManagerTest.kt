@@ -4,8 +4,9 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-package com.github.morinb.kotlin.shared
+package com.github.morinb.kotlin.core
 
+import com.github.morinb.kotlin.shared.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
@@ -25,7 +26,8 @@ class KPluginManagerTest {
 
     @BeforeEach
     fun setUp() {
-        manager = KPluginManagerImplTest()
+        manager = PluginManager
+        manager.clearCache()
         defaultPlugin = object : KPlugin {
             override val logger: Logger
                 get() = logger<KPluginManagerTest>()
@@ -57,8 +59,11 @@ class KPluginManagerTest {
 
     @Test
     fun `Registering twice a plugin should do nothing`() {
-        assertNotNull(manager.register(defaultPlugin))
-        assertNull(manager.register(defaultPlugin))
+        assertEquals(0, manager.plugins().count())
+        manager.register(defaultPlugin)
+        assertEquals(1, manager.plugins().count())
+        manager.register(defaultPlugin)
+        assertEquals(1, manager.plugins().count())
     }
 
     @Test
