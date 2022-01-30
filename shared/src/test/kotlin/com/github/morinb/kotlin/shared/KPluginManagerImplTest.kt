@@ -22,7 +22,7 @@ class KPluginManagerImplTest : KPluginManager {
         return plugins[id]
     }
 
-    override fun enable(id: PluginId) {
+    override fun enable(id: PluginId): KPlugin? {
         logger.debug("Enabling plugin with id : $id")
 
         val plugin = getPlugin(id)
@@ -35,15 +35,19 @@ class KPluginManagerImplTest : KPluginManager {
         plugin?.preEnable()
         plugin?.enabledAt = LocalDateTime.now()
         plugin?.postEnable()
+
+        return plugin
     }
 
-    override fun disable(id: PluginId) {
+    override fun disable(id: PluginId): KPlugin? {
         logger.debug("Disabling plugin with id : $id")
 
         val plugin = getPlugin(id)
         plugin?.preDisable()
         plugin?.enabledAt = null
         plugin?.postDisable()
+
+        return plugin
     }
 
     override fun register(plugin: KPlugin): PluginId? {
@@ -63,5 +67,9 @@ class KPluginManagerImplTest : KPluginManager {
     override fun plugins(filter: PluginFilter): List<KPlugin> {
         logger.debug("Listing plugins")
         return plugins.filter { filter(it.value) }.values.toList()
+    }
+
+    override fun clearCache() {
+        plugins.clear()
     }
 }

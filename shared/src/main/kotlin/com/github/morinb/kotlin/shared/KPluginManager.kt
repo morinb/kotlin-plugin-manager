@@ -13,12 +13,12 @@ interface KPluginManager {
     /**
      * Enables a specific plugin.
      */
-    fun enable(id: PluginId)
+    fun enable(id: PluginId): KPlugin?
 
     /**
      * Disables a specific plugin
      */
-    fun disable(id: PluginId)
+    fun disable(id: PluginId): KPlugin?
 
     /**
      * Register a newly discovered plugin.
@@ -31,6 +31,11 @@ interface KPluginManager {
      * Example plugin filters can be found in the [PluginFilters] enum class.
      */
     fun plugins(filter: PluginFilter = PluginFilters.ALLOW_ALL): List<KPlugin>
+
+    /**
+     * Clears the plugin manager cache.
+     */
+    fun clearCache()
 
 
 }
