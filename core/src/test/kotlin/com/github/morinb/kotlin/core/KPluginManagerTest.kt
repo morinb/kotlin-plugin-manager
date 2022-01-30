@@ -6,7 +6,10 @@
 
 package com.github.morinb.kotlin.core
 
-import com.github.morinb.kotlin.shared.*
+import com.github.morinb.kotlin.shared.KPlugin
+import com.github.morinb.kotlin.shared.PluginFilters
+import com.github.morinb.kotlin.shared.PluginId
+import com.github.morinb.kotlin.shared.logger
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
@@ -20,14 +23,12 @@ import kotlin.test.assertNull
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class KPluginManagerTest {
 
-    private lateinit var manager: KPluginManager
     private lateinit var defaultPlugin: KPlugin
 
 
     @BeforeEach
     fun setUp() {
-        manager = PluginManager
-        manager.clearCache()
+        KPluginManager.clearCache()
         defaultPlugin = object : KPlugin {
             override val logger: Logger
                 get() = logger<KPluginManagerTest>()
@@ -39,50 +40,50 @@ class KPluginManagerTest {
 
     @Test
     fun `Plugin Manager register function should store plugin`() {
-        assertEquals(0, manager.plugins().count())
-        manager.register(defaultPlugin)
-        assertEquals(1, manager.plugins().count())
+        assertEquals(0, KPluginManager.plugins().count())
+        KPluginManager.register(defaultPlugin)
+        assertEquals(1, KPluginManager.plugins().count())
     }
 
     @Test
     fun `Default plugin should not be enabled`() {
-        val id = manager.register(defaultPlugin)!!
-        assertFalse { manager.getPlugin(id)!!.isEnabled() }
+        val id = KPluginManager.register(defaultPlugin)
+        assertFalse { KPluginManager.getPlugin(id)!!.isEnabled() }
     }
 
     @Test
     fun `Enabling a plugin should define its enabledAt date`() {
-        val id = manager.register(defaultPlugin)!!
-        manager.enable(id)
-        assertNotNull(manager.getPlugin(id)!!.enabledAt)
+        val id = KPluginManager.register(defaultPlugin)
+        KPluginManager.enable(id)
+        assertNotNull(KPluginManager.getPlugin(id)!!.enabledAt)
     }
 
     @Test
     fun `Registering twice a plugin should do nothing`() {
-        assertEquals(0, manager.plugins().count())
-        manager.register(defaultPlugin)
-        assertEquals(1, manager.plugins().count())
-        manager.register(defaultPlugin)
-        assertEquals(1, manager.plugins().count())
+        assertEquals(0, KPluginManager.plugins().count())
+        KPluginManager.register(defaultPlugin)
+        assertEquals(1, KPluginManager.plugins().count())
+        KPluginManager.register(defaultPlugin)
+        assertEquals(1, KPluginManager.plugins().count())
     }
 
     @Test
     fun `Disabling a plugin should nullify its enableAt date`() {
-        val id = manager.register(defaultPlugin)!!
-        manager.enable(id)
-        manager.disable(id)
-        assertNull(manager.getPlugin(id)!!.enabledAt)
+        val id = KPluginManager.register(defaultPlugin)
+        KPluginManager.enable(id)
+        KPluginManager.disable(id)
+        assertNull(KPluginManager.getPlugin(id)!!.enabledAt)
     }
 
     @Test
     fun `plugins method can have a filter`() {
-        manager.register(defaultPlugin)
-        assertEquals(1, manager.plugins(PluginFilters.DISABLED).count())
+        KPluginManager.register(defaultPlugin)
+        assertEquals(1, KPluginManager.plugins(PluginFilters.DISABLED).count())
     }
 
     @Test
     fun `plugins does not accept null filter`() {
-        manager.register(defaultPlugin)
-        manager.plugins { false }
+        KPluginManager.register(defaultPlugin)
+        KPluginManager.plugins { false }
     }
 }

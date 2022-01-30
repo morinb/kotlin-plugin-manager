@@ -7,21 +7,21 @@
 package com.github.morinb.kotlin.core
 
 import com.github.morinb.kotlin.shared.KPlugin
-import com.github.morinb.kotlin.shared.KPluginManager
 import com.github.morinb.kotlin.shared.PluginFilter
+import com.github.morinb.kotlin.shared.PluginFilters
 import com.github.morinb.kotlin.shared.PluginId
 import java.time.LocalDateTime
 
 /**
  * Access, enable and disable a plugin by its id
  */
-object PluginManager : KPluginManager {
+object KPluginManager {
 
     private val pluginCache = mutableMapOf<PluginId, KPlugin>()
 
-    override fun getPlugin(id: PluginId): KPlugin? = pluginCache[id]
+    fun getPlugin(id: PluginId): KPlugin? = pluginCache[id]
 
-    override fun enable(id: PluginId) =
+    fun enable(id: PluginId) =
         getPlugin(id)?.apply {
             preEnable()
             enabledAt = LocalDateTime.now()
@@ -29,22 +29,22 @@ object PluginManager : KPluginManager {
         }
 
 
-    override fun disable(id: PluginId) =
+    fun disable(id: PluginId) =
         getPlugin(id)?.apply {
             preDisable()
             enabledAt = null
             postDisable()
         }
 
-    override fun register(plugin: KPlugin): PluginId {
+    fun register(plugin: KPlugin): PluginId {
         return pluginCache.computeIfAbsent(plugin.id()) { plugin }.id()
     }
 
-    override fun plugins(filter: PluginFilter): List<KPlugin> {
+    fun plugins(filter: PluginFilter = PluginFilters.ALLOW_ALL): List<KPlugin> {
         return pluginCache.values.filter(filter).toList()
     }
 
-    override fun clearCache() {
+    fun clearCache() {
         pluginCache.clear()
     }
 

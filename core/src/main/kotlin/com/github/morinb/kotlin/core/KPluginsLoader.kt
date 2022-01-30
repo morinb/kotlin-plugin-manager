@@ -25,7 +25,7 @@ object KPluginsLoader {
     private lateinit var classLoader: URLClassLoader
 
     /**
-     * Loads and reloads plugin from the modules directory, and register them in the [PluginManager]
+     * Loads and reloads plugin from the modules directory, and register them in the [KPluginManager]
      */
     fun reloadPlugins(): Collection<KPlugin> {
         val pluginClassNames = mutableListOf<String>()
@@ -45,11 +45,11 @@ object KPluginsLoader {
             val pluginKClass = Class.forName(clazz, true, classLoader).kotlin
             if (pluginKClass.isSubclassOf(KPlugin::class)) {
                 val plugin = pluginKClass.createInstance() as KPlugin
-                PluginManager.register(plugin)
+                KPluginManager.register(plugin)
             }
         }
 
-        return PluginManager.plugins()
+        return KPluginManager.plugins()
     }
 
 }
