@@ -6,11 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="report" />
-        <module name="core" />
-        <module name="shared" />
         <module name="kotlin-plugin-manager-shared" />
         <module name="kotlin-plugin-manager-core" />
+        <module name="kotlin-plugin-manager-report" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

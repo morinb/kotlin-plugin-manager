@@ -14,7 +14,7 @@
         <version>0.0.3-SNAPSHOT</version>
     </parent>
 
-    <artifactId>report</artifactId>
+    <artifactId>kotlin-plugin-manager-report</artifactId>
     <version>0.0.3-SNAPSHOT</version>
 
     <name>Jacoco Report Aggregate</name>

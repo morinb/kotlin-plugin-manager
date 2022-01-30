@@ -9,7 +9,7 @@ package com.github.morinb.kotlin.core
 import java.io.File
 import java.io.FileFilter
 
-object KPluginsFilter : FileFilter {
+internal object KPluginsFilter : FileFilter {
     override fun accept(pathname: File?): Boolean {
         return pathname?.isFile == true && pathname.name.lowercase().endsWith(".jar")
     }
