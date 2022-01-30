@@ -9,14 +9,12 @@ package com.github.morinb.kotlin.core
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Test
 
+
 internal class KPluginsLoaderTest {
 
     @Test
     fun reloadPlugins() {
-
         val reloadPlugins = KPluginsLoader.reloadPlugins()
-
         assertNotNull(reloadPlugins)
-
     }
 }

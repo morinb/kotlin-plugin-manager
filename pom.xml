@@ -220,6 +220,11 @@
                 <version>2.22.2</version>
                 <configuration>
                     <argLine>-Dorg.slf4j.simpleLogger.defaultLogLevel=off @{argLine}</argLine>
+                    <includes>
+                        <include>Test*</include>
+                        <include>*Test</include>
+                        <include>*TestCase</include>
+                    </includes>
                 </configuration>
             </plugin>
             <plugin>

@@ -6,9 +6,7 @@
 
 package com.github.morinb.kotlin.core
 
-import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import java.util.prefs.Preferences
 
@@ -16,6 +14,10 @@ internal class OptionsTest {
 
     @Test
     fun testOptions() {
+        Preferences.userNodeForPackage(Options::class.java).remove("for-test")
+        Preferences.systemNodeForPackage(Options::class.java).remove("for-test-sys")
+
+
         assertEquals("test-test", Options.forTestsUser)
         assertEquals("test-test-sys", Options.forTestsSystem)
 
@@ -25,14 +27,7 @@ internal class OptionsTest {
         assertEquals("testing", Options.forTestsUser)
         assertEquals("testing-system", Options.forTestsSystem)
 
-    }
-
-    @BeforeEach
-    @AfterEach
-    fun removeTestOptions() {
         Preferences.userNodeForPackage(Options::class.java).remove("for-test")
         Preferences.systemNodeForPackage(Options::class.java).remove("for-test-sys")
     }
-
-
 }
