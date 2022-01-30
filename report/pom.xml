@@ -11,11 +11,11 @@
     <parent>
         <groupId>com.github.morinb.kotlin</groupId>
         <artifactId>kotlin-plugin-manager</artifactId>
-        <version>0.0.3</version>
+        <version>0.0.4-SNAPSHOT</version>
     </parent>
 
     <artifactId>kotlin-plugin-manager-report</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.4-SNAPSHOT</version>
 
     <name>Jacoco Report Aggregate</name>
 
@@ -30,12 +30,12 @@
         <dependency>
             <groupId>com.github.morinb.kotlin</groupId>
             <artifactId>kotlin-plugin-manager-core</artifactId>
-            <version>0.0.3</version>
+            <version>0.0.4-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.github.morinb.kotlin</groupId>
             <artifactId>kotlin-plugin-manager-shared</artifactId>
-            <version>0.0.3</version>
+            <version>0.0.4-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
