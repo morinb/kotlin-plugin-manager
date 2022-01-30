@@ -24,6 +24,9 @@ object Options {
 
     var modulePath by preference(userPreferences, "modulePath", "modules")
 
+    var forTestsUser by preference(userPreferences, "for-test", "test-test")
+    var forTestsSystem by preference(systemPreferences, "for-test-sys", "test-test-sys")
+
 }
 
 
