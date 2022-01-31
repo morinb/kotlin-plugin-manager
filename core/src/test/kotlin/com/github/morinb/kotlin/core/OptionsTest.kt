@@ -11,9 +11,11 @@ import org.junit.jupiter.api.Test
 import java.util.prefs.Preferences
 
 internal class OptionsTest {
-
     @Test
     fun testOptions() {
+        System.setProperty("java.util.prefs.PreferencesFactory", FilePreferencesFactory::class.java.name)
+        System.setProperty(FilePreferencesFactory.SYSTEM_PROPERTY_FILE, "myPrefs.txt")
+
         Preferences.userNodeForPackage(Options::class.java).remove("for-test")
         Preferences.systemNodeForPackage(Options::class.java).remove("for-test-sys")
 
